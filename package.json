@@ -1,0 +1,21 @@
+{
+  "name": "gof-patterns-in-typescript",
+  "version": "1.0.0",
+  "description": "Examples of Gang of Four design patterns in Typescript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "GOF",
+    "Typescript",
+    "Design",
+    "patterns"
+  ],
+  "author": "Nikolay Ivanov <n_13@bk.ru>",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^14.11.8",
+    "typescript": "^4.0.3"
+  }
+}
