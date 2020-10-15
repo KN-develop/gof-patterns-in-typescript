@@ -1,7 +1,7 @@
 export default abstract class BackendAdapterServer {
-    protected readonly data: string;
+    protected service: any;
 
-    protected constructor(data: string) {
-        this.data = data;
+    protected constructor() {
+
     }
 }

@@ -6,5 +6,5 @@ export type BackendResponse<T> = {
 }
 
 export interface BackendAdapterInterface {
-    normalize(): BackendResponse<any>;
+    get(): BackendResponse<any>;
 }

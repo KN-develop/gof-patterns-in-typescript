@@ -3,37 +3,20 @@ import BackendAdapterServerOne from "./modules/BackendAdapterServerOne";
 import BackendAdapterServerTwo from "./modules/BackendAdapterServerTwo";
 
 
-const mock1 = `{
-            "code": 200,
-            "answer": {
-                "data": {
-                    "name": "TestName",
-                    "age": 31
-                }
-            }
-        }`;
-const mock2 = `{
-        "status": "success",
-        "data": {
-            "name": "TestName2",
-            "age": 31
-        }
-    }`;
-
 class System {
     protected activeServer: BackendAdapterInterface;
 
     constructor(serverName: string) {
         if (serverName === 'serverOne') {
-            this.activeServer = new BackendAdapterServerOne(mock1);
+            this.activeServer = new BackendAdapterServerOne();
         }
         if (serverName === 'serverTwo') {
-            this.activeServer = new BackendAdapterServerTwo(mock2);
+            this.activeServer = new BackendAdapterServerTwo();
         }
     }
 
     getData<T>(): BackendResponse<T> {
-        return this.activeServer.normalize();
+        return this.activeServer.get();
     }
 }
 

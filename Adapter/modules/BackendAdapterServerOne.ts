@@ -1,13 +1,29 @@
 import {BackendAdapterInterface, BackendResponse} from "../types";
 import BackendAdapterServer from "./BackendAdapterServer";
 
+class Service {
+    createData(): string {
+        return `{
+            "code": 200,
+            "answer": {
+                "data": {
+                    "name": "TestName",
+                    "age": 31
+                }
+            }
+        }`;
+    }
+}
+
 export default class BackendAdapterServerOne extends BackendAdapterServer implements BackendAdapterInterface {
-    public constructor(data: string) {
-        super(data);
+
+    public constructor() {
+        super();
+        this.service = new Service();
     }
 
-    normalize(): BackendResponse<any> {
-        const parse = JSON.parse(this.data);
+    get(): BackendResponse<any> {
+        const parse = JSON.parse(this.service.createData());
 
         const res: BackendResponse<any> = {
             status: parse.code === 200 ? 'success' : 'error',
